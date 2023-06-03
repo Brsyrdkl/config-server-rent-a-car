@@ -1,11 +1,21 @@
 spring:
   application:
-    name: filter-service
-  data:
-    mongodb:
-      database: filterdb-t2
-      uri: mongodb://192.168.1.102:27017
+    name: inventory-service
+  datasource:
+    username: postgres
+    password: '12345'
+    url: jdbc:postgresql://localhost:5432/inventorydb-t2
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
   kafka:
+    producer:
+      bootstrap-servers: http://192.168.1.102:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       auto-offset-reset: earliest
       bootstrap-servers: http://192.168.1.102:9092
