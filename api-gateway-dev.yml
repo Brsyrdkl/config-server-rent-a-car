@@ -7,6 +7,43 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+          include-expression: true
+
+      routes:
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory-service/api/**
+            - Method=GET,POST,PUT,DELETE
+            -
+        - id: maintenance-service
+          uri: lb://maintenance-service
+          predicates:
+            - Path=/maintenance-service/api/**
+            - Method=GET,POST,PUT,DELETE
+
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payment-service/api/**
+            - Method=GET,POST,PUT,DELETE
+
+        - id: rental-service
+          uri: lb://rental-service
+          predicates:
+            - Path=/rental-service/api/**
+            - Method=GET,POST,PUT,DELETE
+
+        - id: invoice-service
+          uri: lb://invoice-service
+          predicates:
+            - Path=/invoice-service/api/**
+            - Method=GET,POST,PUT,DELETE
+        - id: filter-service
+          uri: lb://filter-service
+          predicates:
+            - Path=/filter-service/api/**
+            - Method=GET,DELETE
 eureka:
   client:
     fetch-registry: true
