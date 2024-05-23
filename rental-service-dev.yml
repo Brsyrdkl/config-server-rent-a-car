@@ -4,7 +4,7 @@ spring:
   datasource:
     username: postgres
     password: '12345'
-    url: jdbc:postgresql://localhost:5432/rentaldb-t2
+    url: jdbc:postgresql://localhost:5432/rentacar-rentaldb
   jpa:
     properties:
       hibernate:
