@@ -15,7 +15,7 @@ spring:
           predicates:
             - Path=/inventory-service/api/**
             - Method=GET,POST,PUT,DELETE
-            -
+          
         - id: maintenance-service
           uri: lb://maintenance-service
           predicates:
@@ -39,11 +39,13 @@ spring:
           predicates:
             - Path=/invoice-service/api/**
             - Method=GET,POST,PUT,DELETE
+
         - id: filter-service
           uri: lb://filter-service
           predicates:
             - Path=/filter-service/api/**
             - Method=GET,DELETE
+
 eureka:
   client:
     fetch-registry: true
